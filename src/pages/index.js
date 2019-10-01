@@ -1,13 +1,18 @@
 import React from "react"
 import { Link } from "gatsby"
+import { Box } from "grommet"
+import InfiniteScroll from 'react-infinite-scroller'
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import Gallery from '../components/gallery'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
+    <Box width={"xxlarge"}>
+
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -15,6 +20,8 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/page-2/">Go to page 2</Link>
+    </Box>
+     <Gallery/>
   </Layout>
 )
 
