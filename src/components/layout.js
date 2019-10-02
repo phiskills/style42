@@ -6,6 +6,7 @@ import { grommet } from 'grommet/themes'
 import Helmet from './Helmet'
 import ConfigContext from './configContext'
 import flatObject from '../utils/flatObject'
+
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;

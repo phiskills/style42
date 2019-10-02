@@ -1,9 +1,10 @@
 import React from "react"
-import {Image} from 'grommet'
+// import {Image} from 'grommet'
+// import Image from 'gatsby-image'
 
-function Picture(props) {
+function Picture({url}) {
   return (
-    <Image/>
+    <img src={url}/>
   )
 }
 
