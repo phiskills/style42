@@ -41,9 +41,9 @@ const Header = ({headerIcon}) => (
 
     <Box style={{
       "cursor": "pointer"
-    }}gap={"small"} direction={"row"} align={"center"}>
+    }}gap={"medium"} direction={"row"} align={"center"}>
       <Instagram />
-      <Twitter/>
+      {/*<Twitter/>*/}
       <Facebook/>
     </Box>
     {/*</Link>*/}

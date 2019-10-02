@@ -10,11 +10,11 @@ function Picture({ url }) {
       "size": "small",
       "style": "solid",
       "side": "all"
-    }} elevation="medium" animation="fadeIn">
+    }} elevation="medium" animation="zoomIn">
       {/*<Box height="small" width="small">*/}
       <Image style={{
           "cursor": "pointer"
-        }} round="large" fit="cover" src={url}/>
+        }} fit="cover" src={url}/>
     </Box>
   )
 }
