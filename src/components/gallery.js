@@ -17,7 +17,7 @@ function Gallery(data) {
 
       <Box margin="small" overflow={"auto"}>
 
-        <Grid as="grid" columns="medium" rows="medium" gap="small" fill={'vertical'}>
+        <Grid as="grid" columns="medium" rows="medium" gap="small">
           {pictures.map(p => <Picture key={p} url={p}/>)}
         </Grid>
       </Box>
