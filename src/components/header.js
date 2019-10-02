@@ -1,42 +1,48 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Box, Heading, Image } from "grommet"
+import Img from 'gatsby-image'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
+
+const Header = ({headerIcon}) => (
+  <Box
+
+    elevation={"small"}
+    as="header"
+    background={
+      {
+        "color": "dark-1",
+        "dark": true,
+        opacity: true,
+      }
+    }
+
+    direction={"row"}
+    fill={"horizontal"}
+    gap={"medium"}
+    justify={"between"}
+    align={"center"}
+    pad={"small"}
   >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+    {/*<Link*/}
+    {/*  to="/"*/}
+    {/*  style={{*/}
+    {/*    color: `white`,*/}
+    {/*    textDecoration: `none`,*/}
+    {/*  }}*/}
+    {/*>*/}
+    <Box direction={"row"} align={"center"} gap={"small"}>
+      <Box width={"xxsmall"} height={"xxsmall"}>
+        <Img fluid={headerIcon.childImageSharp.fluid}/>
+      </Box>
+      <Heading>Style 42</Heading>
+    </Box>
+
+    <Box >
+      Signup
+    </Box>
+    {/*</Link>*/}
+  </Box>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: `Style 42`,
-}
-
 export default Header
+

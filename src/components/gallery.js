@@ -2,19 +2,25 @@ import React, { useEffect, useState } from "react"
 import { Box, Grid } from "grommet"
 import Picture from "./picture"
 import Layout from "./layout"
+import Header from "./header"
 
-// 1. set up empty state
-// have a lambda function update a json file with pictures every hour or so
-// use pictures list inside this component to render
-// move cloudinary code to lambda function
-function Gallery({pageContext: {pictures}}) {
+function Gallery(data) {
+  if (!data.pageContext) return <div>loading...</div>
+  const {
+    pictures,
+    headerIcon
+  } = data.pageContext
   return (
     <Layout>
-      <Grid>
-        {pictures.map(p => <Picture key={p} url={p}/>)}
-      </Grid>
+      <Header headerIcon={headerIcon}/>
+      <Box margin="small">
+        <Grid as="grid" columns="medium" rows="medium" gap="small">
+          {pictures.map(p => <Picture key={p} url={p}/>)}
+        </Grid>
+      </Box>
     </Layout>
   )
 }
 
 export default Gallery
+
