@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 import { Box, Image } from "grommet"
 // import {Image} from 'grommet'
 // import Image from 'gatsby-image'
@@ -12,12 +13,18 @@ function Picture({ url }) {
       "side": "all"
     }} elevation="medium" animation="zoomIn">
       {/*<Box height="small" width="small">*/}
-      <Image style={{
-          "cursor": "pointer"
-        }} fit="cover" src={url}/>
+      <Img src={url}/>
     </Box>
   )
 }
 
 export default Picture
+
+const Img = styled(img)`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+   
+`
 
