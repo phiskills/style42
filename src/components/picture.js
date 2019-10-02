@@ -11,7 +11,8 @@ function Picture({ url }) {
       "size": "small",
       "style": "solid",
       "side": "all"
-    }} elevation="medium" animation="zoomIn">
+    }} elevation="medium" animation="fadeIn"
+    >
       {/*<Box height="small" width="small">*/}
       <Img src={url}/>
     </Box>
