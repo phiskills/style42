@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Box, Image } from "grommet"
+import { Box } from "grommet"
 // import {Image} from 'grommet'
 // import Image from 'gatsby-image'
 
@@ -20,7 +20,7 @@ function Picture({ url }) {
 
 export default Picture
 
-const Img = styled(img)`
+const Img = styled('img')`
   width: 100%;
   height: 100%;
   object-fit: cover;

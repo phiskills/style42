@@ -54,7 +54,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           }
   `)
 
-  console.log("result", result.data.headerIcon)
   createPage({
     path: `/`,
     component: require.resolve("./src/components/gallery.js"),
