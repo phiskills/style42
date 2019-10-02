@@ -12,9 +12,12 @@ function Picture({ url }) {
       "side": "all"
     }} elevation="medium" animation="fadeIn">
       {/*<Box height="small" width="small">*/}
-      <Image round="large" fit="cover" src={url}/>
+      <Image style={{
+          "cursor": "pointer"
+        }} round="large" fit="cover" src={url}/>
     </Box>
   )
 }
 
 export default Picture
+

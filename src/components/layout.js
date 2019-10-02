@@ -12,21 +12,21 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 `
-const enhancedTheme = (baseTheme, customTheme) => {
-  const flatTheme = flatObject(customTheme)
-  const colors = {
-    ...grommet.global.colors,
-    ...flatTheme,
-  }
-
-  return {
-    ...baseTheme,
-    global: {
-      ...baseTheme.global,
-      colors,
-    },
-  }
-}
+// const enhancedTheme = (baseTheme, customTheme) => {
+//   const flatTheme = flatObject(customTheme)
+//   const colors = {
+//     ...grommet.global.colors,
+//     ...flatTheme,
+//   }
+//
+//   return {
+//     ...baseTheme,
+//     global: {
+//       ...baseTheme.global,
+//       colors,
+//     },
+//   }
+// }
 
 const Layout = ({ children }) => (
   <ConfigContext.Provider>
@@ -34,7 +34,7 @@ const Layout = ({ children }) => (
     <ConfigContext.Consumer>
       {appConfig => (
         <Grommet
-          theme={enhancedTheme(grommet, appConfig.theme)}
+          theme={grommet}
           full
           css={css`
             scroll-behavior: smooth;

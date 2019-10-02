@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Box, Grid } from "grommet"
+import { Box, Grid, InfiniteScroll } from "grommet"
 import Picture from "./picture"
 import Layout from "./layout"
 import Header from "./header"
@@ -12,10 +12,15 @@ function Gallery(data) {
   } = data.pageContext
   return (
     <Layout>
+
       <Header headerIcon={headerIcon}/>
-      <Box margin="small">
+
+      <Box margin="small" overflow={"auto"}>
+
         <Grid as="grid" columns="medium" rows="medium" gap="small">
-          {pictures.map(p => <Picture key={p} url={p}/>)}
+          <InfiniteScroll items={pictures} step={12}>
+            {p => <Picture key={p} url={p}/>}
+          </InfiniteScroll>
         </Grid>
       </Box>
     </Layout>

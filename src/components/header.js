@@ -1,6 +1,8 @@
 import React from "react"
 import { Box, Heading, Image } from "grommet"
 import Img from 'gatsby-image'
+import {Instagram, Facebook, Twitter} from 'grommet-icons'
+
 
 
 const Header = ({headerIcon}) => (
@@ -37,8 +39,12 @@ const Header = ({headerIcon}) => (
       <Heading>Style 42</Heading>
     </Box>
 
-    <Box >
-      Signup
+    <Box style={{
+      "cursor": "pointer"
+    }}gap={"small"} direction={"row"} align={"center"}>
+      <Instagram />
+      <Twitter/>
+      <Facebook/>
     </Box>
     {/*</Link>*/}
   </Box>
