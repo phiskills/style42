@@ -20,7 +20,7 @@ const fetchPictures = async () => {
   const res = await cloudinary.api.resources_by_tag(
     'batchResult1',
     {
-      max_results: 100,
+      max_results: 500,
 
     },
     function(error, result) {
