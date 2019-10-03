@@ -1,13 +1,19 @@
 const cloudinary = require("cloudinary").v2
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
-const path = require(`path`)
 
 const setList = list => list.reduce((acc, cur) => {
   acc.push(cur.url)
   return acc
 }, [])
+
+const formatUrl = (url) => {
+  let urlArr = url.split('/')
+  let urlNewArr = urlArr.insert()
+  return
+}
 
 const fetchPictures = async () => {
 
@@ -18,9 +24,10 @@ const fetchPictures = async () => {
   })
 
   const res = await cloudinary.api.resources_by_tag(
-    'batchResult1',
+    "batchResult1",
     {
       max_results: 500,
+
 
     },
     function(error, result) {
@@ -33,11 +40,11 @@ const fetchPictures = async () => {
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const pictures = await fetchPictures()
 
-  const result = await graphql(`
+  return graphql(`
           query {
-              headerIcon: file(relativePath: { eq: "pug-icon-big.png" }) {
+              logo: file(relativePath: { eq: "logo.png" }) {
                   childImageSharp {
-                      fluid(maxWidth: 32) {
+                      fluid(maxWidth: 200) {
                           base64
                           tracedSVG
                           aspectRatio
@@ -52,19 +59,28 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                   }
               }
           }
-  `)
+  `, { limit: 120 }).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
 
-  createPage({
-    path: `/`,
-    component: require.resolve("./src/components/gallery.js"),
-    context: { pictures, headerIcon: result.data.headerIcon },
-    // // Create a page for each Pokémon.
-    // allPokemon.forEach(pokemon => {
-    //   createPage({
-    //     path: `/pokemon/${pokemon.name}/`,
-    //     component: require.resolve("./src/templates/pokemon.js"),
-    //     context: { pokemon },
-    //   })
-    // })
+    createPage({
+      path: `/`,
+      component: require.resolve("./src/components/landing.js"),
+      context: { pictures, logo: result.data.logo},
+      // // Create a page for each Picture.
+      // pictures.forEach(picture => {
+      //   createPage({
+      //     path: `/picture/${picture}/`,
+      //     component: require.resolve("./src/templates/picture.js"),
+      //     context: { picture },
+      //   })
+      // })
+    })
+    createPage({
+      path: `/gallery`,
+      component: require.resolve("./src/components/gallery.js"),
+      context: { pictures, logo: result.data.logo},
+    })
   })
 }

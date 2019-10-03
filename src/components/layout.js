@@ -1,56 +1,32 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { css, createGlobalStyle } from 'styled-components'
-import { Grommet } from 'grommet'
-import { grommet } from 'grommet/themes'
-import Helmet from './Helmet'
-import ConfigContext from './configContext'
-import flatObject from '../utils/flatObject'
+import React from "react"
+import PropTypes from "prop-types"
+import { CloudinaryContext } from "cloudinary-react"
+import Helmet from "./helmet"
+import Header from "./header"
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
+const Layout = ({ children, logo }) => {
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-  }
-`
-// const enhancedTheme = (baseTheme, customTheme) => {
-//   const flatTheme = flatObject(customTheme)
-//   const colors = {
-//     ...grommet.global.colors,
-//     ...flatTheme,
-//   }
-//
-//   return {
-//     ...baseTheme,
-//     global: {
-//       ...baseTheme.global,
-//       colors,
-//     },
-//   }
-// }
-
-const Layout = ({ children }) => (
-  <ConfigContext.Provider>
-    <GlobalStyle />
-    <ConfigContext.Consumer>
-      {appConfig => (
-        <Grommet
-          theme={grommet}
-          full
-          css={css`
-            scroll-behavior: smooth;
-            overflow-y: scroll;
-          `}
-        >
-          <Helmet />
+  console.log("process.env.GAD  scad,", process.env.GATSBY_CLOUDINARY_NAME)
+  return (
+    <>
+      <Helmet/>
+      <CloudinaryContext cloudName={process.env.GATSBY_CLOUDINARY_NAME} secure={true}>
+        <div className="container is-fluid">
+          {/*<section className={"section"}>*/}
+          <Header logo={logo}/>
           {children}
-        </Grommet>
-      )}
-    </ConfigContext.Consumer>
-  </ConfigContext.Provider>
-)
+        </div>
+      </CloudinaryContext>
+      {/*</section>*/}
+    </>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
+
 
 export default Layout
