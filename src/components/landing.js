@@ -1,6 +1,7 @@
 import React from "react"
 import { navigate } from "gatsby"
 import Layout from "./layout"
+import {AnimatedDiv} from "./gallery"
 
 const IndexPage = (data) => {
   if (!data.pageContext) return <div>loading...</div>
@@ -12,10 +13,10 @@ const IndexPage = (data) => {
      <section className="section">
        <div className="container has-text-centered">
          <div className="columns is-vcentered">
-           <div className="column is-6"><a href="#">
+           <AnimatedDiv className="column is-6"><a href="#">
              <img
                src={"https://res.cloudinary.com/style42/image/upload/v1569855909/result/16%2B3%2B10%2Bcontent1E4Style1E-2.png.png"}/>
-              </a></div>
+              </a></AnimatedDiv>
            <div className="column is-6">
              <h2 className="title is-spaced">Style 42</h2>
              <p className="block">

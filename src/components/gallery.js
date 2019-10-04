@@ -1,7 +1,11 @@
 import React from "react"
-import Picture from "./galleryItem"
+import styled, { keyframes } from 'styled-components';
+import { fadeIn as animationFrame } from 'react-animations';
+
 import Layout from "./layout"
 import GalleryItem from "./galleryItem"
+const animation = keyframes`${animationFrame}`;
+
 function Gallery(data) {
   if (!data.pageContext) return <div>loading...</div>
   const {
@@ -13,9 +17,9 @@ function Gallery(data) {
       <section className="section">
         <div className="container">
           <h2 className="title has-text-centered">Gallery</h2>
-          <div className="columns is-multiline">
+          <AnimatedDiv className="columns is-multiline">
             {pictures.map(img_src => <GalleryItem key={img_src} img_src={img_src}/>)}
-          </div>
+          </AnimatedDiv>
         </div>
       </section>
     </Layout>
@@ -24,4 +28,6 @@ function Gallery(data) {
 
 export default Gallery
 
-
+export const AnimatedDiv = styled('div')`
+   animation: 1s ${animation};
+`
