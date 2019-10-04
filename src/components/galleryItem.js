@@ -1,14 +1,16 @@
 import React from "react"
-import styled, { keyframes } from 'styled-components';
-// import { zoomIn as animationFrame } from 'react-animations';
+import styled from 'styled-components';
+import { navigate } from "gatsby-link"
 import setUrl from "../utils/setUrl"
 
-// const animation = keyframes`${animationFrame}`;
 
 
-function GalleryItem({ img_src }) {
+function GalleryItem({ img_src, id}) {
+  console.log(id)
   return (
-    <Div className="column is-4">
+    <Div onClick={(e) => {
+      navigate(`gallery/${id}`)
+    }} className="column is-4">
       <Img src={setUrl(img_src)} />
     </Div>
   )

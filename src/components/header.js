@@ -25,11 +25,11 @@ const Header = () => (
 
         {/*</div>*/}
         <div className="navbar-end">
-          {/*<a onClick={ e => {*/}
-          {/*  e.preventDefault()*/}
-          {/*  navigate('/gallery')*/}
-          {/*}*/}
-          {/*} className="navbar-item" href="#">Gallery</a>*/}
+          <a onClick={ e => {
+            e.preventDefault()
+            navigate('/gallery')
+          }
+          } className="navbar-item" href="#">Gallery</a>
           <a className={"navbar-item"}><span className="icon"> <i className="fab fa-instagram"></i> </span></a>
           <a className={"navbar-item"}><span className="icon"> <i className="fab fa-facebook"></i> </span></a>
           <a className={"navbar-item"}><span className="icon"> <i className="fab fa-pinterest"></i> </span></a>

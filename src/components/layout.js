@@ -7,7 +7,7 @@ import './all.sass'
 // require("dotenv").config({
 //   path: `.env.${process.env.NODE_ENV}`,
 // })
-const Layout = ({ children, logo }) => {
+const Layout = ({ children}) => {
 
   console.log("process.env.GAD  scad,", process.env.GATSBY_CLOUDINARY_NAME)
   return (
@@ -16,7 +16,7 @@ const Layout = ({ children, logo }) => {
       <CloudinaryContext cloudName={process.env.GATSBY_CLOUDINARY_NAME} secure={true}>
         <div className="container is-fluid">
           {/*<section className={"section"}>*/}
-          <Header logo={logo}/>
+          <Header/>
           {children}
         </div>
       </CloudinaryContext>

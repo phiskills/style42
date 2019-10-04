@@ -60,18 +60,20 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       component: require.resolve("./src/components/landing.js"),
       context: { pictures, logo: result.data.logo },
       // // Create a page for each Picture.
-      // pictures.forEach(picture => {
-      //   createPage({
-      //     path: `/picture/${picture}/`,
-      //     component: require.resolve("./src/templates/galleryItem.js"),
-      //     context: { picture },
-      //   })
-      // })
+
     })
     createPage({
       path: `/gallery`,
       component: require.resolve("./src/components/gallery.js"),
       context: { pictures, logo: result.data.logo },
+    })
+
+    pictures.forEach(picture => {
+      createPage({
+        path: `/gallery/${picture.id}/`,
+        component: require.resolve("./src/components/tableau.js"),
+        context: { picture },
+      })
     })
   })
 }

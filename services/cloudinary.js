@@ -5,7 +5,7 @@ require("dotenv").config({
 })
 
 const setList = list => list.reduce((acc, cur) => {
-  acc.push(cur.secure_url)
+  acc.push({url: cur.secure_url, id: cur.public_id})
   return acc
 }, [])
 

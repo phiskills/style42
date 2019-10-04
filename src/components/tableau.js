@@ -1,14 +1,28 @@
 import React from 'react'
+import styled from "styled-components"
 import Layout from "./layout"
 import setUrl from "../utils/setUrl"
 
 function Tableau(data) {
+  if (!data.pageContext) return <div>loading...</div>
+  const {
+    picture
+  } = data.pageContext
   return (
     <Layout>
-      // 1. wrapper with nice bg and centering
-      // 2. set the url to import good quality image from cloudinary
-      // 3. add an arrow to go to prev/next picture
-      // 4. add action buttons
+      <section className="section">
+        <div className="container has-text-centered">
+          <div className="block">
+            <Img src={setUrl(picture.url)} alt=""/>
+          </div>
+        </div>
+      </section>
     </Layout>
   )
 }
+
+const Img = styled('img')`
+  object-fit: contain;
+`
+
+export default Tableau

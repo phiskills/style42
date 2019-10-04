@@ -5,11 +5,8 @@ import {AnimatedDiv} from "./gallery"
 
 const IndexPage = (data) => {
   if (!data.pageContext) return <div>loading...</div>
-  const {
-    logo,
-  } = data.pageContext
   return (
-   <Layout logo={logo}>
+   <Layout >
      <section className="section">
        <div className="container has-text-centered">
          <div className="columns is-vcentered">
