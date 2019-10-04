@@ -32,6 +32,7 @@ const Header = () => (
           {/*} className="navbar-item" href="#">Gallery</a>*/}
           <a className={"navbar-item"}><span className="icon"> <i className="fab fa-instagram"></i> </span></a>
           <a className={"navbar-item"}><span className="icon"> <i className="fab fa-facebook"></i> </span></a>
+          <a className={"navbar-item"}><span className="icon"> <i className="fab fa-pinterest"></i> </span></a>
           <a className={"navbar-item"}><span className="icon"> <i className="fab fa-twitter"></i> </span></a>
           <div className="navbar-item">
             <div className="buttons">

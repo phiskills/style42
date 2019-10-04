@@ -5,6 +5,7 @@ module.exports = {
     author: `phisuite`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
