@@ -22,6 +22,7 @@ const Helmet = () => (
         ]}
       >
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"/>
+        <script src="https://kit.fontawesome.com/943307461c.js" crossOrigin="anonymous"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <html lang="en"/>
         {/*<html lang="en" className="has-navbar-fixed-top"/>*/}
@@ -30,7 +31,7 @@ const Helmet = () => (
           rel="stylesheet"
         />
         {/*<link rel="stylesheet" href="https://unpkg.com/bulmaswatch/darkly/bulmaswatch.min.css"/>*/}
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
+        {/*  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>*/}
 
       </ReactHelmet>
     )}

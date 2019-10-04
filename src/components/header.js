@@ -1,14 +1,14 @@
 import React from "react"
-import Img from "gatsby-image"
-import { FaTwitter, FaInstagram, FaFileUpload } from "react-icons/fa"
-import * as Image from "../images/logo.png"
+import {navigate} from "gatsby"
 
-const Header = ({ logo }) => (
-
+const Header = () => (
   <nav className="navbar is-transparent " style={{}}>
     <div className="container">
       <div className="navbar-brand">
-        <a className="navbar-item"
+        <a onClick={(e) => {
+          e.preventDefault()
+          navigate('/')
+        }} className="navbar-item"
            href="#">
           <h3 className={"title"}>
             Style 42
@@ -21,12 +21,18 @@ const Header = ({ logo }) => (
         </a>
       </div>
       <div className="navbar-menu">
-        <div className="navbar-start"><a className="navbar-item" href="#">Gallery</a>
-          <a className="navbar-item" href="#">Social
-          </a>
-        </div>
-        <div className="navbar-end">
+        {/*<div className="navbar-start">*/}
 
+        {/*</div>*/}
+        <div className="navbar-end">
+          {/*<a onClick={ e => {*/}
+          {/*  e.preventDefault()*/}
+          {/*  navigate('/gallery')*/}
+          {/*}*/}
+          {/*} className="navbar-item" href="#">Gallery</a>*/}
+          <a className={"navbar-item"}><span className="icon"> <i className="fab fa-instagram"></i> </span></a>
+          <a className={"navbar-item"}><span className="icon"> <i className="fab fa-facebook"></i> </span></a>
+          <a className={"navbar-item"}><span className="icon"> <i className="fab fa-twitter"></i> </span></a>
           <div className="navbar-item">
             <div className="buttons">
               <a className="button is-light" href="#">Follow us </a><a

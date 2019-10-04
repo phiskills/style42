@@ -14,7 +14,7 @@ function Gallery(data) {
         <div className="container">
           <h2 className="title has-text-centered">Gallery</h2>
           <div className="columns is-multiline">
-            {pictures.map(p => <Picture key={p} public_id={p}/>)}
+            {pictures.map(img_src => <Picture key={img_src} img_src={img_src}/>)}
           </div>
         </div>
       </section>

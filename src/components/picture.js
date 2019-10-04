@@ -1,12 +1,11 @@
 import React from "react"
-import {Image, Transformation} from 'cloudinary-react'
+import setUrl from "../utils/setUrl"
 
-function Picture({ public_id }) {
+function Picture({ img_src }) {
+
   return (
     <div className="column is-4">
-      <Image publicId={public_id} alt="">
-        <Transformation dpr="auto" quality="auto" width="250"/>
-      </Image>
+      <img src={setUrl(img_src)} />
     </div>
   )
 }

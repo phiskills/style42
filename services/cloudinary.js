@@ -1,24 +1,15 @@
-const cloudinary = require("cloudinary").v2
 
+const cloudinary = require("cloudinary").v2
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const CLOUDINARY_URL = `${process.env.GATSBY_CLOUDINARY_NAME/w_auto`
 const setList = list => list.reduce((acc, cur) => {
-  acc.push(cur.url)
+  acc.push(cur.secure_url)
   return acc
 }, [])
 
-const makeUrl = (fileName) => {
-  let arr = fileName.split('.')
-  return ''
-  let urlNewArr = urlArr.insert()
-  return
-}
-
-const fetchPictures = async () => {
-
+async function fetchPictures() {
   cloudinary.config({
     cloud_name: process.env.GATSBY_CLOUDINARY_NAME,
     api_key: process.env.GATSBY_CLOUDINARY_API_KEY,
@@ -28,16 +19,15 @@ const fetchPictures = async () => {
   const res = await cloudinary.api.resources_by_tag(
     "batchResult1",
     {
-      max_results: 500,
-
-
+      max_results: 100,
     },
     function(error, result) {
       error && console.log("error:", error)
     })
+  console.log(res.resources)
   return setList(res.resources)
 }
 
-
-export fetchPictures
-
+module.exports = {
+  fetchPictures
+}

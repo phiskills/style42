@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { CloudinaryContext } from "cloudinary-react"
 import Helmet from "./helmet"
 import Header from "./header"
+import './all.sass'
 // require("dotenv").config({
 //   path: `.env.${process.env.NODE_ENV}`,
 // })
