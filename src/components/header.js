@@ -21,9 +21,7 @@ const Header = () => (
         </a>
       </div>
       <div className="navbar-menu">
-        {/*<div className="navbar-start">*/}
-
-        {/*</div>*/}
+        {/*<div className="navbar-start">*//*</div>*/}
         <div className="navbar-end">
           <a onClick={ e => {
             e.preventDefault()
