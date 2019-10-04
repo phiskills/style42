@@ -17,14 +17,14 @@ async function fetchPictures() {
   })
 
   const res = await cloudinary.api.resources_by_tag(
-    "batchResult1",
+    "batch1",
     {
       max_results: 100,
     },
     function(error, result) {
       error && console.log("error:", error)
     })
-  console.log(res.resources)
+  // console.log(res.resources)
   return setList(res.resources)
 }
 

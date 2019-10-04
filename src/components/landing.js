@@ -12,7 +12,8 @@ const IndexPage = (data) => {
          <div className="columns is-vcentered">
            <AnimatedDiv className="column is-6"><a href="#">
              <img
-               src={"https://res.cloudinary.com/style42/image/upload/v1569855909/result/16%2B3%2B10%2Bcontent1E4Style1E-2.png.png"}/>
+               src={"https://res.cloudinary.com/style42/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/art/3%2B2%2B10%2Bcontent1E4Style1E-2.png.png"}/>
+
               </a></AnimatedDiv>
            <div className="column is-6">
              <h2 className="title is-spaced">Style 42</h2>

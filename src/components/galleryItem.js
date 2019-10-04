@@ -11,7 +11,7 @@ function GalleryItem({ img_src, id}) {
     <Div onClick={(e) => {
       navigate(`gallery/${id}`)
     }} className="column is-4">
-      <Img src={setUrl(img_src)} />
+      <Img src={setUrl(img_src, {})} />
     </Div>
   )
 }
