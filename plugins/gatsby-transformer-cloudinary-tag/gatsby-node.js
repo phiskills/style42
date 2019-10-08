@@ -10,7 +10,6 @@ const ALLOWED_MEDIA_TYPES = ["image/png", "image/jpeg", "image/gif"]
 
 exports.onPreExtractQueries = async ({ store, getNodesByType }) => {
   const program = store.getState().program
-
   // Check if there are any ImageSharp nodes. If so add fragments for ImageSharp.
   // The fragment will cause an error if there are no ImageSharp nodes.
   if (getNodesByType(`CloudinaryAsset`).length == 0) {
@@ -27,6 +26,7 @@ exports.onPreExtractQueries = async ({ store, getNodesByType }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`
     type CloudinaryAsset implements Node @dontInfer {
+      tags: [String!]
       fixed(
         base64Width: Int
         base64Transformations: [String!]
@@ -127,40 +127,39 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
   createResolvers(resolvers)
 }
 
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest, reporter }, options) => {
-  const { createNode } = actions
+exports.sourceNodes = async ({ actions: { createNode }, createNodeId, createContentDigest, reporter }, options) => {
 
   // 1. fetch images from cloudinary
-  const list = await fetchPictures(options)
+  const pictures = await fetchPictures(options)
   // console.log("list",list)
+
   // 2. uploadImage (overwrite = false) on cloudinary with breakpoints and stuff
-  const cleanList = []
-  // for (let picture of list) {
-  //   const result = await uploadImageNodeToCloudinary(picture, options).catch(
-  //     error => {
-  //       reporter.panic(error.message, error)
-  //     },
-  //   )
-  // }
+  const results = await Promise.all(pictures.map(picture => uploadImageNodeToCloudinary(picture, options).catch(
+    error => reporter.panic(error.message, error),
+  )))
+
   // 3. get update image list
+
   // 4. create Nodes for each image
-  // const nodeContent = JSON.stringify(myData)
-  //
-  // const nodeMeta = {
-  //   id: createNodeId(`my-data-${myData.key}`),
-  //   parent: null,
-  //   children: [],
-  //   internal: {
-  //     type: `MyNodeType`,
-  //     mediaType: `text/html`,
-  //     content: nodeContent,
-  //     contentDigest: createContentDigest(myData)
-  //   }
-  // }
-
-  // const node = Object.assign({}, myData, nodeMeta)
-  // createNode(node)
-
+  return Promise.all(results.filter(r => !!r).map(result =>
+     createNode({
+        ...result,
+        cloudName: options.cloudName,
+        id: createNodeId(`my-data-${result.public_id}`),
+        originalHeight: result.height,
+        originalWidth: result.width,
+        breakpoints: result.responsive_breakpoints.map(({ width }) => width),
+        parent: null,
+        children: [],
+        internal: {
+          type: `CloudinaryAsset`,
+          mediaType: `text/html`,
+          content: JSON.stringify(result),
+          contentDigest: createContentDigest(result),
+        },
+      }),
+    ),
+  )
 }
 
 

@@ -1,7 +1,8 @@
 const cloudinary = require('cloudinary').v2;
 
-const DEFAULT_FLUID_MAX_WIDTH = 5000;
-const DEFAULT_FLUID_MIN_WIDTH = 200;
+// todo: set in config
+const DEFAULT_FLUID_MAX_WIDTH = 1200;
+const DEFAULT_FLUID_MIN_WIDTH = 100;
 
 exports.uploadImageNodeToCloudinary = async (picture, options) => {
   cloudinary.config({
@@ -14,7 +15,7 @@ exports.uploadImageNodeToCloudinary = async (picture, options) => {
     folder: options.uploadFolder,
     public_id: picture.id,
     overwrite: false,
-    tags: picture.tags,
+    tags: ['style42', ...picture.tags],
     responsive_breakpoints: [
       {
         create_derived: true,
@@ -25,7 +26,6 @@ exports.uploadImageNodeToCloudinary = async (picture, options) => {
       },
     ],
   });
-  console.log("result",result)
 
   return result;
 };
