@@ -1,4 +1,9 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
+
   siteMetadata: {
     title: `Style 42`,
     description: `Gallery of AI artistic creations`,
@@ -27,6 +32,17 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/pug-icon-big.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-cloudinary-tag',
+      options: {
+        cloudName: process.env.GATSBY_CLOUDINARY_NAME,
+        apiKey: process.env.GATSBY_CLOUDINARY_API_KEY,
+        apiSecret: process.env.GATSBY_CLOUDINARY_API_SECRET,
+        // This folder will be created if it doesn’t exist.
+        uploadFolder: 'gatsby-cloudinary',
+        // uploadFolder: 'style42',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
