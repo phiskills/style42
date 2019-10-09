@@ -37,11 +37,12 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-cloudinary-tag',
       options: {
-        cloudName: process.env.GATSBY_CLOUDINARY_NAME,
-        apiKey: process.env.GATSBY_CLOUDINARY_API_KEY,
-        apiSecret: process.env.GATSBY_CLOUDINARY_API_SECRET,
+        cloud_name: process.env.GATSBY_CLOUDINARY_NAME,
+        api_key: process.env.GATSBY_CLOUDINARY_API_KEY,
+        api_secret: process.env.GATSBY_CLOUDINARY_API_SECRET,
         // This folder will be created if it doesn’t exist.
         uploadFolder: 'gatsby-cloudinary',
+        tag: 'test'
         // uploadFolder: 'style42',
       },
     },

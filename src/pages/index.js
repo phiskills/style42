@@ -2,26 +2,21 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { navigate } from "gatsby"
 import Layout from "../components/layout"
-import { AnimatedDiv } from "../components/gallery"
+import { AnimatedDiv } from "./gallery"
 
 const IndexPage = (data) => {
   console.log(data)
-  const { allCloudinaryAsset } = useStaticQuery(graphql`
+  const { cloudinaryAsset } = useStaticQuery(graphql`
       query {
-          allCloudinaryAsset {
-              nodes {
-                  tags
-                  id
-                  fluid {
-                     ...CloudinaryAssetFluid
-                  }
-
-              }
+          cloudinaryAsset(tags: {regex: "/landingHero/"}) {
+              tags
+              url
+              secure_url
+              id
           }
       }
   `)
-  console.log("allCloudinaryAsset", allCloudinaryAsset)
-  // if (!data.pageContext) return <div>loading...</div>
+
   return (
     <Layout>
       <section className="section">
@@ -29,7 +24,7 @@ const IndexPage = (data) => {
           <div className="columns is-vcentered">
             <AnimatedDiv className="column is-6"><a href="#">
               <img
-                src={"https://res.cloudinary.com/style42/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1570533486/art/10%2B1%2B10%2Bcontent1E4Style1E-2.png.png"}/>
+                src={cloudinaryAsset.secure_url} />
 
             </a></AnimatedDiv>
             <div className="column is-6">

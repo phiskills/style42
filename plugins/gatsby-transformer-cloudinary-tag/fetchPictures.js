@@ -1,11 +1,11 @@
 const cloudinary = require("cloudinary").v2
 
 const setList = list => list.reduce((acc, cur) => {
-  acc.push({ url: cur.url, id: cur.public_id, tags: cur.tags })
+  acc.push(cur)
   return acc
 }, [])
 
-exports.fetchPictures = async ({cloudName: cloud_name, apiKey: api_key, apiSecret: api_secret }) => {
+exports.fetchPictures = async ({ cloud_name, api_key, api_secret, tag }) => {
   cloudinary.config({
     cloud_name,
     api_key,
@@ -13,8 +13,7 @@ exports.fetchPictures = async ({cloudName: cloud_name, apiKey: api_key, apiSecre
   })
 
   const { resources } = await cloudinary.api.resources_by_tag(
-    //todo: use plugin options to chose the tags
-    "test",
+    tag,
     {
       max_results: 100,
       tags: true,

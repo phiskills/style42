@@ -18,3 +18,30 @@ export default function setUrl(url, params) {
 }
 
 
+
+export const getImageURL = ({
+  public_id,
+  cloudName,
+  transformations = [],
+  chained = [],
+  defaults = ['f_auto', 'q_auto'],
+  version = false,
+}) => {
+  const baseURL = 'https://res.cloudinary.com/';
+  const allTransformations = [transformations.concat(defaults).join()]
+    .concat(chained)
+    .join('/');
+
+  const imagePath = [
+    cloudName,
+    '/image/upload/',
+    allTransformations,
+    // version ? `/v${version}/` : '/',
+    '/',
+    public_id,
+  ]
+    .join('')
+    .replace('//', '/');
+
+  return baseURL + imagePath;
+};
