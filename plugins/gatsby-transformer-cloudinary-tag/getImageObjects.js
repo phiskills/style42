@@ -10,7 +10,7 @@ const getImageURL = ({
   transformations = [],
   chained = [],
   defaults = ['f_auto', 'q_auto'],
-  version = false,
+  // version = false,
 }) => {
   const baseURL = 'https://res.cloudinary.com/';
   const allTransformations = [transformations.concat(defaults).join()]
@@ -21,7 +21,7 @@ const getImageURL = ({
     cloudName,
     '/image/upload/',
     allTransformations,
-    version ? `/v${version}/` : '/',
+    // version ? `/v${version}/` : '/',
     public_id,
   ]
     .join('')

@@ -12,7 +12,7 @@ exports.uploadImageNodeToCloudinary = async (picture, options) => {
   });
 
   const result = await cloudinary.uploader.upload(picture.url, {
-    folder: options.uploadFolder,
+    // folder: options.uploadFolder,
     public_id: picture.id,
     overwrite: false,
     tags: ['style42', ...picture.tags],

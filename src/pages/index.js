@@ -1,11 +1,26 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { navigate } from "gatsby"
 import Layout from "../components/layout"
 import { AnimatedDiv } from "../components/gallery"
 
 const IndexPage = (data) => {
   console.log(data)
+  const { allCloudinaryAsset } = useStaticQuery(graphql`
+      query {
+          allCloudinaryAsset {
+              nodes {
+                  tags
+                  id
+                  fluid {
+                     ...CloudinaryAssetFluid
+                  }
+
+              }
+          }
+      }
+  `)
+  console.log("allCloudinaryAsset", allCloudinaryAsset)
   // if (!data.pageContext) return <div>loading...</div>
   return (
     <Layout>
@@ -36,14 +51,3 @@ const IndexPage = (data) => {
 export default IndexPage
 
 
-export const query = graphql`
-    query IndexQuery {
-        allCloudinaryAsset {
-            nodes {
-                tags
-                id
-               
-            }
-        }
-    }
-`

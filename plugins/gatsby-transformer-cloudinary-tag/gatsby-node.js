@@ -6,6 +6,8 @@ const {
 const { uploadImageNodeToCloudinary } = require("./upload")
 const { fetchPictures } = require("./fetchPictures")
 
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
 const ALLOWED_MEDIA_TYPES = ["image/png", "image/jpeg", "image/gif"]
 
 exports.onPreExtractQueries = async ({ store, getNodesByType }) => {
@@ -62,7 +64,15 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.createResolvers = ({ createResolvers, reporter }) => {
   const resolvers = {
-    CloudinaryAsset: {
+    // Query: {
+    //   allTheAssets: {
+    //     type: `CloudinaryAsset`,
+    //     resolve(source, args, context, info) {
+    //       console.log(source)
+    //     }
+    //   }
+    // },
+    cloudinaryAsset: {
       fixed: {
         type: "CloudinaryAssetFixed!",
         resolve: (
@@ -142,14 +152,14 @@ exports.sourceNodes = async ({ actions: { createNode }, createNodeId, createCont
 
   // 4. create Nodes for each image
   return Promise.all(results.filter(r => !!r).map(result =>
-     createNode({
-        ...result,
+      createNode({
         cloudName: options.cloudName,
         id: createNodeId(`my-data-${result.public_id}`),
+        public_id: result.public_id,
         originalHeight: result.height,
         originalWidth: result.width,
         breakpoints: result.responsive_breakpoints.map(({ width }) => width),
-        parent: null,
+        parent: ,
         children: [],
         internal: {
           type: `CloudinaryAsset`,

@@ -1,7 +1,8 @@
 import React from "react"
-import styled from 'styled-components';
+import styled from 'styled-components'
 import { navigate } from "gatsby-link"
 import setUrl from "../utils/setUrl"
+import Image from 'gatsby-image'
 
 
 
@@ -11,6 +12,7 @@ function GalleryItem({ img_src, id}) {
     <Div onClick={(e) => {
       navigate(`gallery/${id}`)
     }} className="column is-4">
+      {/*<Img fixed={data.file.childImageSharp.fixed} />*/}
       <Img src={setUrl(img_src, {})} />
     </Div>
   )
