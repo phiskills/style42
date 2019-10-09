@@ -5,11 +5,11 @@ import setUrl from "../utils/setUrl"
 
 
 
-function GalleryItem({ img_src, id}) {
-  console.log(id)
+function GalleryItem({ img_src, public_id, context}) {
+  console.log('context', context)
   return (
     <Div onClick={(e) => {
-      navigate(`gallery/${id}`)
+      navigate(`exposition`, {state: {...context.custom, img_src}})
     }} className="column is-4">
       <Img src={setUrl(img_src, {})} />
     </Div>

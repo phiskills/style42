@@ -16,6 +16,12 @@ function Gallery() {
                   secure_url
                   id
                   public_id
+                  context {
+                      custom {
+                          style
+                          content
+                      }
+                  }
               }
           }
       }
@@ -27,7 +33,10 @@ function Gallery() {
         <div className="container">
           <h2 className="title has-text-centered">Gallery</h2>
           <AnimatedDiv className="columns is-multiline">
-            {allCloudinaryAsset.nodes.map(({ secure_url, id, public_id }) => <GalleryItem key={id} id={public_id} img_src={secure_url}/>)}
+            {allCloudinaryAsset.nodes.map(({ context, secure_url, id, public_id }) => <GalleryItem key={id}
+                                                                                                   context={context}
+                                                                                                   public_id={public_id}
+                                                                                                   img_src={secure_url}/>)}
           </AnimatedDiv>
         </div>
       </section>

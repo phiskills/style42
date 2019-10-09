@@ -17,6 +17,7 @@ exports.fetchPictures = async ({ cloud_name, api_key, api_secret, tag }) => {
     {
       max_results: 100,
       tags: true,
+      context: true,
       // responsive_breakpoints: true,
       derived_context: true,
     },

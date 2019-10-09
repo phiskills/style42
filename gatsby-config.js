@@ -42,7 +42,7 @@ module.exports = {
         api_secret: process.env.GATSBY_CLOUDINARY_API_SECRET,
         // This folder will be created if it doesn’t exist.
         uploadFolder: 'gatsby-cloudinary',
-        tag: 'test'
+        tag: 'october'
         // uploadFolder: 'style42',
       },
     },

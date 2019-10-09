@@ -9,6 +9,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createNodeId, createCont
   return Promise.all(pictures.filter(r => !!r).map(picture =>
       createNode({
         ...picture,
+        // context: picture.context && picture.context.custom? picture.context : {style: 0, content: 0},
         cloudName: options.cloudName,
         id: createNodeId(`cloudinary-${picture.public_id}`),
         parent: null,
