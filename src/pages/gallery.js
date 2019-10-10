@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components"
 import { fadeIn as animationFrame } from "react-animations"
 
 import Layout from "../components/layout"
-import GalleryItem from "../components/galleryItem"
+import { GalleryPicture } from "../components/picture"
 
 const animation = keyframes`${animationFrame}`
 
@@ -33,10 +33,10 @@ function Gallery() {
         <div className="container">
           <h2 className="title has-text-centered">Gallery</h2>
           <AnimatedDiv className="columns is-multiline">
-            {allCloudinaryAsset.nodes.map(({ context, secure_url, id, public_id }) => <GalleryItem key={id}
-                                                                                                   context={context}
-                                                                                                   public_id={public_id}
-                                                                                                   img_src={secure_url}/>)}
+            {allCloudinaryAsset.nodes.map(({ context, secure_url, id, public_id }) => <GalleryPicture key={id}
+                                                                                                      context={context}
+                                                                                                      public_id={public_id}
+                                                                                                      secure_url={secure_url}/>)}
           </AnimatedDiv>
         </div>
       </section>

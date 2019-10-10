@@ -1,6 +1,5 @@
 const cloudinary = require('cloudinary').v2;
 
-// todo: set in config
 const DEFAULT_FLUID_MAX_WIDTH = 1200;
 const DEFAULT_FLUID_MIN_WIDTH = 100;
 

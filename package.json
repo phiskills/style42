@@ -8,7 +8,6 @@
     "babel-plugin-styled-components": "^1.10.6",
     "bulma": "^0.7.5",
     "cloudinary": "^1.15.0",
-    "cloudinary-react": "^1.2.1",
     "gatsby": "^2.15.28",
     "gatsby-plugin-manifest": "^2.2.20",
     "gatsby-plugin-offline": "^3.0.11",
@@ -25,6 +24,7 @@
     "react-animations": "^1.0.0",
     "react-dom": "^16.10.1",
     "react-helmet": "^5.2.1",
+    "react-slick": "^0.25.2",
     "styled-components": "^4.4.0"
   },
   "devDependencies": {

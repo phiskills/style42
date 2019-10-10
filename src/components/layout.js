@@ -1,26 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { CloudinaryContext } from "cloudinary-react"
 import Helmet from "./helmet"
 import Header from "./header"
 import './all.sass'
-// require("dotenv").config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// })
+import SEO from "./seo"
 const Layout = ({ children}) => {
-
-  console.log("process.env.GAD  scad,", process.env.GATSBY_CLOUDINARY_NAME)
   return (
     <>
+      {/*<SEO title="Home" />*/}
       <Helmet/>
-      <CloudinaryContext cloudName={process.env.GATSBY_CLOUDINARY_NAME} secure={true}>
         <div className="container is-fluid">
-          {/*<section className={"section"}>*/}
           <Header/>
           {children}
         </div>
-      </CloudinaryContext>
-      {/*</section>*/}
     </>
   )
 }

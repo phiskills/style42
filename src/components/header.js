@@ -2,7 +2,7 @@ import React from "react"
 import {navigate} from "gatsby"
 
 const Header = () => (
-  <nav className="navbar is-transparent " style={{}}>
+  <nav className="navbar is-transparent" style={{}}>
     <div className="container">
       <div className="navbar-brand">
         <a onClick={(e) => {
