@@ -1,13 +1,13 @@
 import React from "react"
-import {navigate} from "gatsby"
+import { navigate } from "gatsby"
 
 const Header = () => (
-  <nav className="navbar is-transparent" style={{}}>
+  <nav className="navbar is-fixed-top is-transparent">
     <div className="container">
       <div className="navbar-brand">
         <a onClick={(e) => {
           e.preventDefault()
-          navigate('/')
+          navigate("/")
         }} className="navbar-item"
            href="#">
           <h3 className={"title"}>
@@ -15,17 +15,24 @@ const Header = () => (
           </h3>
           {/*<img src={Image}/>*/}
         </a>
-        <a className="navbar-burger" role="button" aria-label="menu" aria-expanded="false"><span
-          aria-hidden="true"></span><span
-          aria-hidden="true"></span><span aria-hidden="true"></span>
-        </a>
+
+        {/*<a class="navbar-burger has-dropdown" role="button" aria-label="menu" aria-expanded="false">*/}
+        {/*  /!*<div className="navbar-dropdown is-boxed">*!/*/}
+        {/*  <span aria-hidden="true">*/}
+        {/*  </span>*/}
+        {/*  <span aria-hidden="true"></span>*/}
+        {/*  <span aria-hidden="true"></span>*/}
+        {/*  /!*</div>*!/*/}
+        {/*</a>*/}
       </div>
       <div className="navbar-menu">
         {/*<div className="navbar-start">*//*</div>*/}
+
         <div className="navbar-end">
-          <a onClick={ e => {
+
+          <a onClick={e => {
             e.preventDefault()
-            navigate('/gallery')
+            navigate("/gallery")
           }
           } className="navbar-item" href="#">Gallery</a>
           <a className={"navbar-item"}><span className="icon"> <i className="fab fa-instagram"></i> </span></a>

@@ -21,8 +21,8 @@ const Helmet = () => (
           { name: 'keywords', content: 'sample, something' },
         ]}
       >
-        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"/>
-        <script src="https://kit.fontawesome.com/943307461c.js" crossOrigin="anonymous"/>
+        {/*<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"/>*/}
+        {/*<script src="https://kit.fontawesome.com/943307461c.js" crossOrigin="anonymous"/>*/}
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         {/*<html lang="en"/>*/}
         <html lang="en" className="has-navbar-fixed-top"/>

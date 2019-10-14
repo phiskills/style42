@@ -46,27 +46,33 @@ function makeGroups(arr, type, value, url) {
   return groups(dict(arr, type), type, value, url)
 }
 
+function getType(type) {
+  return o => o.context.custom[type]
+}
+
 function dict(arr, type = "content") {
   return arr.reduce((acc, cur) => {
-    if (acc[cur.context.custom[type]]) acc[cur.context.custom[type]].push(cur)
-    else acc[cur.context.custom[type]] = [cur]
-    return acc
+    const t = getType(type)(cur)
+    const new_t = acc[t] ? [...acc[t], cur] : [cur]
+    return { ...acc, [t]: new_t }
   }, {})
 }
 
 
 function groups(data, type, value, url) {
-  const groups = []
-  for (let [key, arr] of Object.entries(data)) {
-    groups.push(arr)
-  }
+  const get = getType(type)
 
+  const groups = Object.entries(data).map(([, arr]) => arr)
   if (!url) return groups
-
-  const firstGroup = groups.find(g => g[0] && g[0].context.custom[type] === value)
-  const rest = groups.filter(g => g[0] && g[0].context.custom[type] !== value)
-
-  return [[firstGroup.find(p => p.secure_url === url), ...firstGroup.filter(p => p.secure_url !== url)], ...rest]
+  const firstGroup = groups.find(g => g[0] && get(g[0]) === value)
+  const rest = groups.filter(g => g[0] && get(g[0]) !== value)
+  return [
+    [
+      firstGroup.find(p => p.secure_url === url),
+      ...firstGroup.filter(p => p.secure_url !== url),
+    ],
+    ...rest,
+  ]
 }
 
 export default Exposition
