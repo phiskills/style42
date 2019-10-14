@@ -28,28 +28,28 @@ export function ExpositionMainPicture({ img_src }) {
             <div className={`level-item is-narrow`}>
               <FacebookShareButton url={img_src}>
               <span className="icon ">
-                <FaFacebook size="auto"/>
+                <FaFacebook/>
               </span>
               </FacebookShareButton>
             </div>
             <div className={`level-item is-narrow`}>
               <TwitterShareButton url={img_src}>
               <span className="icon">
-                <FaInstagram size="auto"/>
+                <FaInstagram/>
               </span>
               </TwitterShareButton>
             </div>
             <div className={`level-item is-narrow`}>
               <WhatsappShareButton url={img_src}>
               <span className="icon">
-                <FaWhatsapp size="auto"/>
+                <FaWhatsapp/>
               </span>
               </WhatsappShareButton>
             </div>
             <div className={`level-item is-narrow`}>
               <PinterestShareButton url={img_src} media={img_src}>
               <span className="icon">
-                <FaPinterest size="auto"/>
+                <FaPinterest/>
               </span>
               </PinterestShareButton>
             </div>
@@ -57,12 +57,12 @@ export function ExpositionMainPicture({ img_src }) {
           <div className="level-right">
             <div onClick={() => alert("item added to favourites!")} className="level-item">
              <span className={`icon`}>
-               <FaHeart size={"auto"}/>
+               <FaHeart/>
              </span>
             </div>
             <div onClick={() => alert("Item added to cart")} className="level-item">
              <span className={`icon`}>
-               <FaCartPlus size={"auto"}/>
+               <FaCartPlus/>
              </span>
             </div>
           </div>
