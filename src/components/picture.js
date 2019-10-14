@@ -85,7 +85,7 @@ export function GalleryPicture({ secure_url, public_id, context }) {
   return (
     <Div onClick={(e) => {
       navigate(`exposition`, { state: { ...context.custom, secure_url } })
-    }} className="column is-4 is-narrow">
+    }} className="column is-4 is-narrow is-3-mobile">
       <img className="is-rounded-1 is-desktop-hovered" src={setUrl(secure_url, {})}/>
     </Div>
   )

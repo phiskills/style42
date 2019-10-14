@@ -35,7 +35,7 @@ function Gallery() {
         <div className="container">
           {/*<h2 className="title has-text-centered">Gallery</h2>*/}
 
-          <AnimatedDiv className="columns is-multiline">
+          <AnimatedDiv className="columns is-multiline is-mobile">
             {allCloudinaryAsset.nodes.map(({ context, secure_url, id, public_id }) =>
               <GalleryPicture key={id} secure_url={secure_url} context={context} public_id={public_id}/>,
             )}
