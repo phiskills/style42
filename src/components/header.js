@@ -1,8 +1,10 @@
 import React from "react"
+import styled from "styled-components"
 import { navigate } from "gatsby"
+import { FaFacebook, FaInstagram, FaPinterest, FaWhatsapp, FaShoppingCart } from "react-icons/fa"
 
 const Header = () => (
-  <nav className="navbar is-fixed-top is-transparent">
+  <nav className="navbar is-fixed-top is-transparent has-shadow">
     <div className="container">
       <div className="navbar-brand">
         <a onClick={(e) => {
@@ -35,14 +37,24 @@ const Header = () => (
             navigate("/gallery")
           }
           } className="navbar-item" href="#">Gallery</a>
-          <a className={"navbar-item"}><span className="icon"> <i className="fab fa-instagram"></i> </span></a>
-          <a className={"navbar-item"}><span className="icon"> <i className="fab fa-facebook"></i> </span></a>
-          <a className={"navbar-item"}><span className="icon"> <i className="fab fa-pinterest"></i> </span></a>
-          <a className={"navbar-item"}><span className="icon"> <i className="fab fa-twitter"></i> </span></a>
+          <a onClick={e => {
+            // e.preventDefault()
+            // navigate("/favourites")
+            alert("go to favourites")
+          }} className="navbar-item">Liked</a>
+          {/*<a className={"navbar-item"}><span className="icon">  </span></a>*/}
+          {/*<a className={"navbar-item"}><span className="icon"> <i className="fab fa-facebook"></i> </span></a>*/}
+          {/*<a className={"navbar-item"}><span className="icon"> <i className="fab fa-pinterest"></i> </span></a>*/}
+          {/*<a className={"navbar-item"}><span className="icon"> <i className="fab fa-twitter"></i> </span></a>*/}
           <div className="navbar-item">
             <div className="buttons">
-              <a className="button is-light" href="#">Follow us </a><a
-              className="button is-primary" href="#">Upload</a></div>
+              <a onClick={() => alert("sign up")} className="button is-light" href="#">Sign Up</a>
+              <a onClick={() => alert("open cart")} className="button" href="#">
+                <span className="icon is-medium">
+                 <FaShoppingCart size="auto"/>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

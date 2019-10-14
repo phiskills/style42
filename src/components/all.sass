@@ -24,12 +24,50 @@ $primary: $dark-sea-green
 $background: $pastel-blue
 $dark: $japanese-indigo
 
-.darkBg
-  background-image: linear-gradient(to bottom right, $dark-slate-gray, $japanese-indigo)
+$box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1)
+
+.is-desktop-hovered
+  cursor: pointer
+  @media only screen and (min-width: $desktop)
+    &:hover
+      transform: scale(1.02)
+      opacity: 0.7
+
+.is-desktop-hovered-large
+  cursor: pointer
+  @media only screen and (min-width: $desktop)
+    &:hover
+      transform: scale(1.03)
+      opacity: 0.7
+
+.has-shadow
+  box-shadow: $box-shadow
 
 .gradientBg
   display: flex
   background: linear-gradient(to right, $primary-color, $secondary-color)
+
+.has-margin-top-1
+  margin-top: 0.5rem
+
+.has-margin-top-2
+  margin-top: 0.75rem
+
+.has-margin-top-3
+  margin-top: 1rem
+
+.is-rounded-1
+  border-radius: $radius
+
+.row
+  display: flex
+  flex-direction: row
+  align-items: center
+  div:first-of-type
+    margin-right: 8px
+  div:last-of-type
+    margin-left: 8px
+  //justify-content:
 
 .center
   display: flex
@@ -45,3 +83,4 @@ $dark: $japanese-indigo
     color: black
   a:hover
     color: $secondary-color
+

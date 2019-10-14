@@ -1,29 +1,30 @@
 import React from "react"
-import { ExpositionMainPicture, ExpositionSimilarPicture } from "./picture"
-import Layout from "./layout"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 
+import { ExpositionMainPicture, ExpositionSimilarPicture } from "./picture"
 
-// 1. set state using group first element as default unless url given
-// 2. change state on click to set new main and new rest
 export function PictureGroup({ group }) {
   let [selected, setSelected] = React.useState(0)
   return (
     <section className="section">
-      <div className="container fluid has-text-centered">
-        {/*<h2 className="title">Great Companies that already use PiperNet</h2>*/}
+      <div className="container has-text-centered ">
         <ExpositionMainPicture img_src={group[selected].secure_url}/>
-
-        <FaAngleLeft/>
-        <div className="columns is-mobile"
-             style={{ overflowX: "scroll !important", overflowY: "hidden", scrollBehavior: "smooth" }}>
-          {group.map(({ id, secure_url }, index) => <ExpositionSimilarPicture selected={selected === index} handleClick={e => setSelected(index)} key={id} img_src={secure_url}/>)}
+        <div className={"row is-mobile"}>
+          <div onClick={() => {
+            setSelected((selected - 1) % group.length)
+          }} className={"is-centered is-desktop-hovered-large"}>
+            <FaAngleLeft size={"1.5rem"}/>
+          </div>
+          <div className="columns is-mobile is-variable is-1"
+               style={{ overflowX: "scroll !important", overflowY: "hidden", scrollBehavior: "smooth" }}>
+            {group.map(({ id, secure_url }, index) => <ExpositionSimilarPicture selected={selected === index}
+                                                                                handleClick={e => setSelected(index)}
+                                                                                key={id} img_src={secure_url}/>)}
+          </div>
+          <div onClick={() => setSelected((selected + 1) % group.length)} className="is-centered is-desktop-hovered-large">
+            <FaAngleRight size={"1.5rem"}/>
+          </div>
         </div>
-        <FaAngleRight/>
-        {/*<h4 className="title is-spaced is-4">Client: K-Hole</h4>*/}
-        {/*<p className="subtitle">We are constantly looking for new partners to migrate onto the Piper Net. The*/}
-        {/*  future*/}
-        {/*  of the internet is here - venture towards it with Pied Piper!</p>*/}
       </div>
     </section>
   )
